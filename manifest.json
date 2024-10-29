@@ -1,0 +1,14 @@
+{
+    "description": "scrapes pics and text from specified websites",
+    "manifest_version": 2,
+    "name": "xplt's sh*tscraper",
+    "version": "0.1",
+  
+    "permissions": ["webRequest", "<all_urls>", "webRequestBlocking"],
+
+    
+    "background": {
+      "scripts": ["background.js"]
+    }
+  }
+  

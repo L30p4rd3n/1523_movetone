@@ -2,13 +2,13 @@
     "description": "scrapes pics and text from specified websites",
     "manifest_version": 2,
     "name": "xplt's sh*tscraper",
-    "version": "0.1",
+    "version": "0.101",
   
-    "permissions": ["webRequest", "<all_urls>", "webRequestBlocking"],
+    "permissions": ["webRequest", "<all_urls>", "webRequestBlocking", "management"],
 
     
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["background.js", "scraper.js"]
     }
   }
   

@@ -1,28 +1,34 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-from .db import main
+from starlette.middleware.cors import CORSMiddleware
+
+from .ds import main
 from .logs import log
-
-class ParamData():
-    _id: int
-    # probably, some other structure data of the application
-
-    def __init__(self):
-        self._id = 1
 
 
 app = FastAPI()
-params = ParamData()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 
 class Data(BaseModel):
-    id: int
     text: str
 
 
 @app.post('/', status_code=200)
 async def root(text: Data):
+    print(text.text)
     #await log(text.text)
-    await main.write(text.text)
-    params._id += 1
-    return text
+    ds = main.TextEvaluated
+    ds.__init__(main.TextEvaluated, text=text)
+    ds.add_to_df(ds, text.text, main.df)
+    response = ""
+    await log(main.df)
+
+    return {"text": f"{response}"}  # able to return any response

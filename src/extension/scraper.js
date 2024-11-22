@@ -1,4 +1,4 @@
-console.log("reloaded");
+/*console.log("reloaded");
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -55,7 +55,7 @@ function download() {
     lnk.remove();
     sleep(50); 
     return 0;
-  /*}c1+=1;*/
+  }c1+=1;
   //counter += 1; // == b[b.length - 1] ???
   }
 }
@@ -75,3 +75,4 @@ while(f == false){
     urls: ["<all_urls>"],
   });
   
+*/

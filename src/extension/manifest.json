@@ -1,11 +1,11 @@
 {
-    "description": "scrapes pics and text from specified websites",
+    "description": "no description",
     "manifest_version": 2,
-    "name": "xplt's sh*tf*ckery",
+    "name": "1523_movetone",
     "version": "0.0.1",
     "author": "L30p4rd3n",
   
-    "permissions": ["webRequest", "<all_urls>", "webRequestBlocking", "management"],
+    "permissions": ["webRequest", "https://vk.com/*", "webRequestBlocking", "management"],
 
     
     "background": {

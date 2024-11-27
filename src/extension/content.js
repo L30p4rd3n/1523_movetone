@@ -39,6 +39,27 @@ export{
 }
 
 export function main(){
-    console.log("dasdasda");
-    send_to_backend("fsdfdsdf");
-} // now force the button to do that
+    var link = document.URL.split("/")
+    if(link[link.length - 1] != "feed"){
+        if(document.getElementsByClassName("submit_post_field dark submit_post_inited").length > 0){
+            // empty
+            send_to_backend(document.getElementsByClassName("submit_post_field dark submit_post_inited")[0].firstChild.textContent)
+            }
+        else if(document.getElementsByClassName("PostInputWithEmoji__messageInputWrapper--mQxVHt").length > 0){
+            alert("dsa")
+            var where = document.getElementsByClassName("vkuiUnstyledTextField")[0].firstChild.textContent
+            var a = document.getElementsByClassName("vkuiButton__in");
+            var b = ""
+            for(var i = 0; i < a.length; i++){
+                if ("Далее" == a[i].firstChild.textContent){
+                  b = a[i];
+                }
+              }
+            var btn_elem = ((b.parentElement).parentElement).parentElement;
+            var btn = document.createElement("button");
+            btn.className = "vkuiButton--size-m vkuiButton--mode-primary vkuiButton--appearance-accent vkuiButton--align-center vkuiTappable vkuiTappable--hasPointer-none vkuiClickable__resetButtonStyle vkuiClickable__host vkuiClickable__realClickable vkui-focus-visible vkuiRootComponent"
+            btn.textContent = "Проанализировать на соответствие тематике паблика"
+            btn.onclick = send_to_backend(where)
+        }
+    }
+}

@@ -1,0 +1,6 @@
+fastapi
+pandas
+pymorphy3
+nltk
+scikit-learn
+transformers

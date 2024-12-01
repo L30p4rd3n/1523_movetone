@@ -1,28 +1,21 @@
 {
-    "description": "no description",
-    "manifest_version": 2,
+    "description": "there will be at some time in the future",
+    "manifest_version": 2 ,
     "name": "1523_movetone",
     "version": "0.0.1",
     "author": "L30p4rd3n",
-  
-    "permissions": ["webRequest", "https://vk.com/*", "webRequestBlocking", "management"],
+    "homepage_url": "https://github.com/L30p4rd3n/1523_movetone",
 
-    
-    "background": {
-      "page": "background.html"
+    "browser_action":
+    {
+      "default_popup": "popup.html"
     },
 
     "content_scripts":
     [{ 
-      "matches": ["<all_urls>"],
-      "js": ["loader.js"]
-    }],
-
-    "web_accessible_resources": 
-      [
-        "content.js",
-         "loader.js"
-      ]
+      "matches": ["https://vk.com/*"],
+      "js": ["content.js"]
+    }]
     
 
   }

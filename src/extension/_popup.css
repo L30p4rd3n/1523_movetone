@@ -1,0 +1,12 @@
+html, body{
+    text-align: center;
+    background-color: #696969;
+    padding: 10px 10px 5px 10px;
+    width: 100px;
+    height: 240px;
+    font-family: 'Roboto-flex', sans-serif;
+    border-width: 1px;
+}
+button{
+    width: 60%;
+}

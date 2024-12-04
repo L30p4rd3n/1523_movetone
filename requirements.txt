@@ -3,4 +3,7 @@ pandas
 pymorphy3
 nltk
 scikit-learn
+cython
 transformers
+torch
+ultraimport

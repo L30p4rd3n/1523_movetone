@@ -1,34 +1,37 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Response
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
-
-from .ds import main
+from ..ai.MNL import analyse
 from .logs import log
 
+import ultraimport
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=['*'],
-    allow_credentials=True,
     allow_methods=['*'],
-    allow_headers=['*'],
+    allow_credentials=False,
+    allow_headers=['*']
 )
 
 
-class Data(BaseModel):
-    text: str
+class PublicPosts(BaseModel):
+    #__public_id__: str
+    data: list[str]
+    #__ids__: list[str]
 
 
-@app.post('/', status_code=200)
-async def root(text: Data):
-    print(text.text)
-    #await log(text.text)
-    ds = main.TextEvaluated
-    ds.__init__(main.TextEvaluated, text=text)
-    ds.add_to_df(ds, text.text, main.df)
-    response = ""
-    await log(main.df)
+@app.post("/public-post", status_code=201)
+async def public(text: PublicPosts):
+    # id = text.__public_id__
+    textList = text.data
+    # textIDs = text.__ids__
 
-    return {"text": f"{response}"}  # able to return any response
+    tl = await analyse(textList)
+    await log(tl)
+
+    # for i in range(len(textList)):
+    #   analyse(textList[i])
+    return {}

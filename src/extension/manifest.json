@@ -6,6 +6,8 @@
     "author": "L30p4rd3n",
     "homepage_url": "https://github.com/L30p4rd3n/1523_movetone",
 
+    "permissions":["webRequest", "dns", "webNavigation", "<all_urls>"],
+
     "browser_action":
     {
       "default_popup": "popup.html"
@@ -13,7 +15,7 @@
 
     "content_scripts":
     [{ 
-      "matches": ["https://vk.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }]
     

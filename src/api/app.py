@@ -18,9 +18,16 @@ app.add_middleware(
 
 
 class PublicPosts(BaseModel):
-    #__public_id__: str
+    # __public_id__: str
     data: list[str]
-    #__ids__: list[str]
+    # __ids__: list[str]
+
+
+class resp(BaseModel):
+    data: list
+
+    def __init__(self):
+        self.data = []
 
 
 @app.post("/public-post", status_code=201)
@@ -31,7 +38,8 @@ async def public(text: PublicPosts):
 
     tl = await analyse(textList)
     await log(tl)
+    resp.data = tl
 
     # for i in range(len(textList)):
     #   analyse(textList[i])
-    return {}
+    return {"data": resp.data }

@@ -1,10 +1,12 @@
 {
-    "description": "there will be at some time in the future",
+    "description": "Prototype of a community and current post classificator",
     "manifest_version": 2 ,
     "name": "1523_movetone",
-    "version": "0.0.1",
+    "version": "1.0",
     "author": "L30p4rd3n",
     "homepage_url": "https://github.com/L30p4rd3n/1523_movetone",
+
+    "permissions":["webRequest", "tabs", "https://vk.com/*", "http://*/*"],
 
     "browser_action":
     {
@@ -13,7 +15,7 @@
 
     "content_scripts":
     [{ 
-      "matches": ["https://vk.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }]
     

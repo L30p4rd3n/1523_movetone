@@ -3,3 +3,4 @@ logs/
 data.sqlite
 .vscode/
 test.csv
+hf_creds.py
